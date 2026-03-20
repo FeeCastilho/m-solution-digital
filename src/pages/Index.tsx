@@ -15,67 +15,41 @@ import WhatsAppButton from "@/components/WhatsAppButton";
 import Footer from "@/components/Footer";
 import SectionDivider from "@/components/SectionDivider";
 
-const white = "hsl(220 20% 97%)";
-const soft = "hsl(220 18% 94%)";
-const warm = "hsl(215 20% 92%)";
-
 const Index = () => {
   return (
-    <div className="relative min-h-screen overflow-x-hidden">
+    <div className="relative min-h-screen overflow-x-hidden bg-background">
       <CircuitBackground />
       <Header />
-
-      {/* Hero — default bg */}
       <HeroSection />
-      <SectionDivider variant="wave" from={white} to={soft} />
-
-      {/* Problems — soft bg */}
-      <div style={{ background: soft }}>
+      <SectionDivider />
+      <div className="bg-muted/40">
         <ProblemsSection />
       </div>
-      <SectionDivider variant="curve" from={soft} to={white} />
-
-      {/* Solution — default bg */}
+      <SectionDivider />
       <SolutionSection />
-      <SectionDivider variant="wave" from={white} to={warm} />
-
-      {/* Method — warm bg */}
-      <div style={{ background: warm }}>
+      <SectionDivider />
+      <div className="bg-muted/40">
         <MethodSection />
       </div>
-      <SectionDivider variant="curve" from={warm} to={white} />
-
-      {/* Services — default bg */}
+      <SectionDivider />
       <ServicesSection />
-      <SectionDivider variant="wave" from={white} to={soft} />
-
-      {/* Social Proof — soft bg */}
-      <div style={{ background: soft }}>
+      <SectionDivider />
+      <div className="bg-muted/40">
         <SocialProofSection />
       </div>
-      <SectionDivider variant="curve" from={soft} to={white} />
-
-      {/* Testimonials — default bg */}
+      <SectionDivider />
       <TestimonialsSection />
-      <SectionDivider variant="wave" from={white} to={warm} />
-
-      {/* Authority — warm bg */}
-      <div style={{ background: warm }}>
+      <SectionDivider />
+      <div className="bg-muted/40">
         <AuthoritySection />
       </div>
-      <SectionDivider variant="curve" from={warm} to={white} />
-
-      {/* Scarcity */}
+      <SectionDivider />
       <ScarcitySection />
-      <SectionDivider variant="wave" from={white} to={soft} />
-
-      {/* FAQ — soft bg */}
-      <div style={{ background: soft }}>
+      <SectionDivider />
+      <div className="bg-muted/40">
         <FaqSection />
       </div>
-      <SectionDivider variant="curve" from={soft} to={white} />
-
-      {/* Final CTA */}
+      <SectionDivider />
       <FinalCtaSection />
       <Footer />
       <WhatsAppButton />
