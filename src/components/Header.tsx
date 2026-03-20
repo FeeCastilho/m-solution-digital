@@ -21,47 +21,55 @@ const Header = () => {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  // Lock body scroll when mobile menu open
+  useEffect(() => {
+    document.body.style.overflow = mobileOpen ? "hidden" : "";
+    return () => { document.body.style.overflow = ""; };
+  }, [mobileOpen]);
+
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         scrolled
-          ? "py-3 bg-background/80 backdrop-blur-xl border-b border-brand-navy/20 shadow-[0_4px_30px_hsl(215_55%_25%/0.15)]"
-          : "py-5 bg-transparent"
+          ? "py-2.5 lg:py-3 bg-background/85 backdrop-blur-2xl border-b border-brand-navy/25 shadow-[0_4px_40px_hsl(215_55%_15%/0.25)]"
+          : "py-4 lg:py-5 bg-transparent"
       }`}
     >
-      <div className="container mx-auto px-6 flex items-center justify-between">
-        {/* Logo — prominent */}
-        <a href="#" className="relative group flex items-center gap-3">
+      <div className="container mx-auto px-6 flex items-center justify-between gap-4">
+        {/* Logo — large and proud */}
+        <a href="#" className="relative group flex-shrink-0">
           <img
             src={logoHorizontal}
             alt="M Solution Digital"
-            className={`transition-all duration-500 ${scrolled ? "h-9 sm:h-10" : "h-11 sm:h-12"}`}
+            className={`transition-all duration-500 ${
+              scrolled ? "h-10 sm:h-11 lg:h-12" : "h-12 sm:h-14 lg:h-16"
+            }`}
           />
-          {/* Glow behind logo on hover */}
-          <div className="absolute -inset-3 rounded-xl bg-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10" />
+          {/* Subtle gold glow on hover */}
+          <div className="absolute -inset-4 rounded-2xl bg-primary/[0.04] opacity-0 group-hover:opacity-100 transition-opacity duration-500 -z-10 blur-sm" />
         </a>
 
-        {/* Desktop nav */}
-        <nav className="hidden md:flex items-center gap-1">
+        {/* Desktop nav — centered */}
+        <nav className="hidden lg:flex items-center gap-0.5 px-2 py-1.5 rounded-full glass-navy">
           {NAV_ITEMS.map((item) => (
             <a
               key={item.href}
               href={item.href}
-              className="relative px-4 py-2 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors duration-300 group"
+              className="relative px-5 py-2 text-sm font-medium text-muted-foreground hover:text-foreground transition-all duration-300 rounded-full hover:bg-white/[0.04] group"
             >
               {item.label}
-              <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-px bg-primary transition-all duration-300 group-hover:w-3/4" />
+              <span className="absolute bottom-1 left-1/2 -translate-x-1/2 w-0 h-0.5 rounded-full bg-primary transition-all duration-300 group-hover:w-5" />
             </a>
           ))}
         </nav>
 
-        {/* CTA + mobile toggle */}
-        <div className="flex items-center gap-3">
+        {/* Right side — CTA + mobile toggle */}
+        <div className="flex items-center gap-3 flex-shrink-0">
           <a
             href={WHATSAPP_LINK}
             target="_blank"
             rel="noopener noreferrer"
-            className="hidden sm:inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-primary text-primary-foreground font-display font-bold text-sm transition-all duration-300 hover:scale-[1.03] active:scale-[0.97] box-glow-gold"
+            className="hidden sm:inline-flex items-center gap-2.5 px-6 py-3 rounded-xl bg-primary text-primary-foreground font-display font-bold text-sm transition-all duration-300 hover:scale-[1.03] active:scale-[0.97] shadow-[0_2px_20px_hsl(45_95%_52%/0.3)] hover:shadow-[0_4px_30px_hsl(45_95%_52%/0.5)]"
           >
             <MessageCircle className="w-4 h-4" />
             FALE CONOSCO
@@ -70,41 +78,63 @@ const Header = () => {
           {/* Mobile menu button */}
           <button
             onClick={() => setMobileOpen(!mobileOpen)}
-            className="md:hidden p-2 text-foreground hover:text-primary transition-colors"
+            className="lg:hidden relative w-10 h-10 flex items-center justify-center rounded-xl border border-border hover:border-primary/30 text-foreground hover:text-primary transition-all duration-300 active:scale-95"
             aria-label="Menu"
           >
-            {mobileOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            {mobileOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
           </button>
         </div>
       </div>
 
-      {/* Mobile dropdown */}
+      {/* Mobile fullscreen overlay */}
       <div
-        className={`md:hidden overflow-hidden transition-all duration-400 ${
-          mobileOpen ? "max-h-80 opacity-100" : "max-h-0 opacity-0"
+        className={`lg:hidden fixed inset-0 top-0 bg-background/98 backdrop-blur-2xl transition-all duration-500 ${
+          mobileOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
         }`}
+        style={{ zIndex: 60 }}
       >
-        <div className="container mx-auto px-6 py-4 flex flex-col gap-1 bg-background/95 backdrop-blur-xl border-t border-border mt-3">
-          {NAV_ITEMS.map((item) => (
-            <a
-              key={item.href}
-              href={item.href}
+        <div className="flex flex-col h-full">
+          {/* Mobile header with logo + close */}
+          <div className="flex items-center justify-between px-6 py-4 border-b border-border/50">
+            <img src={logoHorizontal} alt="M Solution Digital" className="h-10" />
+            <button
               onClick={() => setMobileOpen(false)}
-              className="px-4 py-3 text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-muted/50 rounded-lg transition-colors"
+              className="w-10 h-10 flex items-center justify-center rounded-xl border border-border text-foreground hover:text-primary transition-colors"
+              aria-label="Fechar"
             >
-              {item.label}
+              <X className="w-5 h-5" />
+            </button>
+          </div>
+
+          {/* Mobile nav links */}
+          <nav className="flex-1 flex flex-col justify-center px-8 gap-2">
+            {NAV_ITEMS.map((item, i) => (
+              <a
+                key={item.href}
+                href={item.href}
+                onClick={() => setMobileOpen(false)}
+                className="group flex items-center gap-4 px-6 py-5 rounded-2xl text-lg font-display font-semibold text-muted-foreground hover:text-foreground hover:bg-brand-navy/10 transition-all duration-300"
+                style={{ animationDelay: `${i * 60}ms` }}
+              >
+                <span className="w-1.5 h-1.5 rounded-full bg-primary opacity-0 group-hover:opacity-100 transition-opacity" />
+                {item.label}
+              </a>
+            ))}
+          </nav>
+
+          {/* Mobile CTA */}
+          <div className="px-8 pb-10">
+            <a
+              href={WHATSAPP_LINK}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => setMobileOpen(false)}
+              className="flex items-center justify-center gap-3 w-full px-6 py-4 rounded-2xl bg-primary text-primary-foreground font-display font-bold text-base transition-all duration-300 active:scale-[0.97] shadow-[0_4px_30px_hsl(45_95%_52%/0.35)]"
+            >
+              <MessageCircle className="w-5 h-5" />
+              FALAR COM ESPECIALISTA
             </a>
-          ))}
-          <a
-            href={WHATSAPP_LINK}
-            target="_blank"
-            rel="noopener noreferrer"
-            onClick={() => setMobileOpen(false)}
-            className="mt-2 flex items-center justify-center gap-2 px-5 py-3 rounded-lg bg-primary text-primary-foreground font-display font-bold text-sm"
-          >
-            <MessageCircle className="w-4 h-4" />
-            FALE CONOSCO
-          </a>
+          </div>
         </div>
       </div>
     </header>
