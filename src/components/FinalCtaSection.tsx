@@ -1,11 +1,14 @@
 import { MessageCircle } from "lucide-react";
 import CircuitDecoration from "./CircuitDecoration";
+import { useScrollReveal } from "./useScrollReveal";
 
 const WHATSAPP_LINK = "https://wa.me/5511930093582?text=Olá! Quero falar com um especialista da M Solution Digital";
 
 const FinalCtaSection = () => {
+  const { ref, isVisible } = useScrollReveal();
+
   return (
-    <section className="relative py-32 lg:py-40 overflow-hidden">
+    <section className="relative py-32 lg:py-40 overflow-hidden" ref={ref}>
       <CircuitDecoration className="absolute top-0 left-16 h-[200px] w-10 opacity-20 hidden lg:block" />
       <CircuitDecoration className="absolute bottom-0 right-20 h-[180px] w-10 opacity-15 hidden lg:block rotate-180" />
 
@@ -14,13 +17,13 @@ const FinalCtaSection = () => {
           style={{ background: "radial-gradient(circle, hsl(215 55% 30%) 0%, transparent 70%)" }} />
       </div>
 
-      <div className="container relative z-10 mx-auto px-6 text-center space-y-10">
+      <div className={`container relative z-10 mx-auto px-6 text-center space-y-10 ${isVisible ? "animate-fade-up" : "opacity-0"}`}>
         <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight max-w-4xl mx-auto">
           Quer clientes chamando no seu WhatsApp{" "}
           <span className="text-primary text-glow-gold">todos os dias?</span>
         </h2>
         <p className="text-lg text-muted-foreground max-w-xl mx-auto">
-          Fale com um especialista agora e descubra como o Método M System™ pode transformar sua loja.
+          Fale com um especialista agora e descubra como podemos transformar a presença digital da sua loja.
         </p>
         <a
           href={WHATSAPP_LINK}

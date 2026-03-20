@@ -50,8 +50,8 @@ const HeroSection = () => {
 
             <p className="text-lg sm:text-xl text-muted-foreground max-w-xl leading-relaxed" style={{ textWrap: "pretty" as any }}>
               Estratégia, tecnologia e posicionamento digital para lojas de{" "}
-              <span className="text-brand-silver font-medium">material de construção</span> e{" "}
-              <span className="text-brand-silver font-medium">lojas de móveis</span> que querem vender mais todos os dias.
+              <span className="text-foreground font-medium">material de construção</span> e{" "}
+              <span className="text-foreground font-medium">móveis</span> que querem vender mais todos os dias.
             </p>
 
             <a
@@ -73,7 +73,7 @@ const HeroSection = () => {
                 ))}
               </div>
               <p className="text-sm text-muted-foreground">
-                <span className="text-foreground font-semibold">+127 lojas</span> já usam nosso método
+                <span className="text-foreground font-semibold">+127 lojas</span> já confiam no nosso trabalho
               </p>
             </div>
           </div>

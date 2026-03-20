@@ -8,7 +8,6 @@ import ServicesSection from "@/components/ServicesSection";
 import SocialProofSection from "@/components/SocialProofSection";
 import TestimonialsSection from "@/components/TestimonialsSection";
 import AuthoritySection from "@/components/AuthoritySection";
-import ScarcitySection from "@/components/ScarcitySection";
 import FaqSection from "@/components/FaqSection";
 import FinalCtaSection from "@/components/FinalCtaSection";
 import WhatsAppButton from "@/components/WhatsAppButton";
@@ -43,8 +42,6 @@ const Index = () => {
       <div className="bg-muted/40">
         <AuthoritySection />
       </div>
-      <SectionDivider />
-      <ScarcitySection />
       <SectionDivider />
       <div className="bg-muted/40">
         <FaqSection />

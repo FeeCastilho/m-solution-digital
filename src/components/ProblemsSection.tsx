@@ -15,9 +15,6 @@ const ProblemsSection = () => {
 
   return (
     <section className="relative py-24 lg:py-32" ref={ref}>
-      {/* Circuit line divider */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-px h-16 circuit-line-vertical" />
-
       <div className="container mx-auto px-6">
         <div className="text-center mb-16 space-y-4">
           <p className="text-primary text-sm font-semibold tracking-widest uppercase">Você se identifica?</p>
@@ -27,16 +24,18 @@ const ProblemsSection = () => {
           </h2>
         </div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 max-w-5xl mx-auto">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 max-w-5xl mx-auto">
           {problems.map((p, i) => (
             <div
               key={i}
-              className={`group glass-surface glass-surface-hover rounded-xl p-6 cursor-default transition-all duration-500 ${
+              className={`group glass-surface rounded-2xl p-7 cursor-default transition-all duration-500 hover:border-glow hover:shadow-[0_8px_30px_hsl(45_95%_48%/0.08)] ${
                 isVisible ? "animate-fade-up" : "opacity-0"
               }`}
               style={{ animationDelay: `${i * 80}ms` }}
             >
-              <p.icon className="w-8 h-8 text-primary mb-4 transition-transform duration-300 group-hover:scale-110" />
+              <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4 transition-all duration-300 group-hover:bg-primary/20">
+                <p.icon className="w-6 h-6 text-primary transition-transform duration-300 group-hover:scale-110" />
+              </div>
               <p className="text-foreground font-medium leading-snug">{p.text}</p>
             </div>
           ))}
