@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { MessageCircle, Menu, X } from "lucide-react";
 import logoHorizontal from "@/assets/logo-horizontal.png";
+import logoVertical from "@/assets/logo-vertical.png";
 
 const WHATSAPP_LINK = "https://wa.me/5511930093582?text=Olá! Quero falar com um especialista da M Solution Digital";
 
