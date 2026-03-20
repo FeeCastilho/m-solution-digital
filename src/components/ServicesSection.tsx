@@ -35,13 +35,12 @@ const ServicesSection = () => {
   return (
     <section id="servicos" className="relative py-24 lg:py-36" ref={ref}>
       <CircuitDecoration className="absolute top-0 right-16 h-[200px] w-10 opacity-20 hidden lg:block" />
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-px h-16 circuit-line-vertical" />
 
       <div className="container mx-auto px-6">
         <div className="text-center mb-20 space-y-4">
           <p className="text-primary text-sm font-semibold tracking-widest uppercase">Serviços</p>
           <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold">
-            Soluções sob medida para <span className="text-primary text-glow-gold">seu segmento</span>
+            Soluções sob medida para <span className="text-primary">seu segmento</span>
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
             Estratégias específicas para cada tipo de loja — porque vender cimento é diferente de vender sofás.
@@ -52,7 +51,7 @@ const ServicesSection = () => {
           {blocks.map((block, i) => (
             <div
               key={i}
-              className={`relative group glass-surface rounded-3xl overflow-hidden border border-border/50 transition-all duration-700 hover:border-primary/30 hover:shadow-[0_8px_60px_hsl(45_95%_52%/0.08)] ${
+              className={`relative group bg-card rounded-3xl overflow-hidden border border-border shadow-[0_2px_20px_hsl(220_20%_50%/0.06)] transition-all duration-700 hover:border-primary/30 hover:shadow-[0_8px_40px_hsl(45_95%_48%/0.1)] ${
                 isVisible ? "animate-fade-up" : "opacity-0"
               }`}
               style={{ animationDelay: `${i * 200}ms` }}
@@ -64,15 +63,12 @@ const ServicesSection = () => {
                   alt={block.title}
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                 />
-                {/* Gradient overlay for text legibility */}
-                <div className="absolute inset-0 bg-gradient-to-t from-[hsl(220_35%_7%)] via-[hsl(220_35%_7%/0.6)] to-transparent" />
-
-                {/* Title over image */}
+                <div className="absolute inset-0 bg-gradient-to-t from-[hsl(220_25%_12%)] via-[hsl(220_25%_12%/0.5)] to-transparent" />
                 <div className="absolute bottom-0 left-0 right-0 p-6 sm:p-8">
-                  <h3 className="font-display text-xl sm:text-2xl font-bold leading-tight text-foreground">
+                  <h3 className="font-display text-xl sm:text-2xl font-bold leading-tight text-white">
                     {block.title}
                   </h3>
-                  <p className="text-sm text-muted-foreground mt-1.5">{block.subtitle}</p>
+                  <p className="text-sm text-white/70 mt-1.5">{block.subtitle}</p>
                 </div>
               </div>
 
@@ -82,9 +78,9 @@ const ServicesSection = () => {
                 {block.services.map((s, j) => (
                   <div
                     key={j}
-                    className="flex items-start gap-4 p-3.5 rounded-xl bg-brand-navy/5 border border-transparent transition-all duration-300 hover:bg-primary/[0.06] hover:border-primary/15"
+                    className="flex items-start gap-4 p-3.5 rounded-xl bg-muted/50 border border-transparent transition-all duration-300 hover:bg-primary/[0.06] hover:border-primary/15"
                   >
-                    <div className="w-9 h-9 rounded-lg bg-brand-navy/15 flex items-center justify-center shrink-0 mt-0.5">
+                    <div className="w-9 h-9 rounded-lg bg-accent/10 flex items-center justify-center shrink-0 mt-0.5">
                       <s.icon className="w-4 h-4 text-primary" />
                     </div>
                     <div>
@@ -95,7 +91,6 @@ const ServicesSection = () => {
                 ))}
               </div>
 
-              {/* Bottom accent line */}
               <div className="h-px w-full bg-gradient-to-r from-transparent via-primary/20 to-transparent" />
             </div>
           ))}
