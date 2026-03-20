@@ -38,12 +38,12 @@ const Header = () => {
     >
       <div className="container mx-auto px-6 flex items-center justify-between gap-4">
         {/* Logo — large and proud */}
-        <a href="#" className="relative group flex-shrink-0">
+        <a href="#" className="relative group flex-shrink-0 flex items-center gap-3">
           <img
-            src={logoHorizontal}
+            src={logoVertical}
             alt="M Solution Digital"
             className={`transition-all duration-500 ${
-              scrolled ? "h-12 sm:h-14 lg:h-14" : "h-14 sm:h-16 lg:h-20"
+              scrolled ? "h-14 sm:h-16 lg:h-16" : "h-16 sm:h-20 lg:h-24"
             }`}
           />
           {/* Subtle gold glow on hover */}
