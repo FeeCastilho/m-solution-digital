@@ -67,7 +67,7 @@ const HeroSection = () => {
             <div className="flex items-center gap-4 pt-2">
               <div className="flex -space-x-2">
                 {["M.R", "A.S", "C.L", "P.F"].map((initials, i) => (
-                  <div key={i} className="w-9 h-9 rounded-full bg-brand-navy border-2 border-background flex items-center justify-center text-xs font-medium text-foreground">
+                  <div key={i} className="w-9 h-9 rounded-full bg-accent border-2 border-background flex items-center justify-center text-xs font-medium text-accent-foreground">
                     {initials}
                   </div>
                 ))}
