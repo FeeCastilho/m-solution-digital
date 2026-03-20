@@ -1,15 +1,16 @@
 import { MessageCircle } from "lucide-react";
-import logoHorizontal from "@/assets/logo-horizontal.png";
+import logoVertical from "@/assets/logo-vertical.png";
 import CircuitDecoration from "./CircuitDecoration";
 
 const WHATSAPP_LINK = "https://wa.me/5511930093582?text=Olá! Quero falar com um especialista da M Solution Digital";
 
 const HeroSection = () => {
   return (
-    <section className="relative min-h-screen flex items-center overflow-hidden">
+    <section className="relative min-h-screen flex items-center overflow-hidden pt-24 lg:pt-0">
       {/* Circuit decorations from logo identity */}
-      <CircuitDecoration className="absolute top-0 left-8 h-[300px] w-10 opacity-40 hidden lg:block" />
-      <CircuitDecoration className="absolute top-20 right-12 h-[250px] w-10 opacity-25 hidden lg:block" />
+      <CircuitDecoration className="absolute top-20 left-8 h-[300px] w-10 opacity-40 hidden lg:block" />
+      <CircuitDecoration className="absolute top-32 right-12 h-[250px] w-10 opacity-25 hidden lg:block" />
+      <CircuitDecoration className="absolute bottom-20 left-[20%] h-[200px] w-10 opacity-15 hidden lg:block" />
 
       {/* Energy lines SVG */}
       <div className="absolute inset-0 pointer-events-none">
@@ -24,6 +25,9 @@ const HeroSection = () => {
           <path d="M 0 200 Q 200 180 400 300 Q 600 420 800 350 Q 1000 280 1200 500"
             fill="none" stroke="url(#energyGrad)" strokeWidth="1"
             className="animate-circuit-dash" strokeDasharray="1000" />
+          <path d="M 0 600 Q 300 550 500 650 Q 700 750 900 600 Q 1100 450 1400 700"
+            fill="none" stroke="url(#energyGrad)" strokeWidth="0.5"
+            className="animate-circuit-dash" strokeDasharray="1000" style={{ animationDelay: "0.5s" }} />
         </svg>
       </div>
 
@@ -31,9 +35,6 @@ const HeroSection = () => {
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           {/* Left - Text */}
           <div className="space-y-8">
-            {/* Logo */}
-            <img src={logoHorizontal} alt="M Solution Digital" className="h-14 sm:h-16 w-auto" />
-
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border-glow-navy glass-navy">
               <div className="circuit-dot" style={{ width: 6, height: 6 }} />
               <span className="text-sm text-muted-foreground tracking-wider uppercase">
@@ -77,21 +78,25 @@ const HeroSection = () => {
             </div>
           </div>
 
-          {/* Right - Logo visual with circuit orbits */}
+          {/* Right - Brand visual with logo prominently */}
           <div className="relative hidden lg:flex items-center justify-center">
-            <div className="relative w-80 h-80 xl:w-96 xl:h-96">
+            <div className="relative w-[420px] h-[420px] xl:w-[480px] xl:h-[480px]">
               {/* Orbiting rings in brand navy */}
               <div className="absolute inset-0 rounded-full border border-brand-navy/30 animate-[spin_20s_linear_infinite]" />
               <div className="absolute inset-6 rounded-full border border-brand-gold/15 animate-[spin_15s_linear_infinite_reverse]" />
               <div className="absolute inset-12 rounded-full border border-brand-navy/10 animate-[spin_25s_linear_infinite]" />
 
-              {/* Center with logo */}
-              <div className="absolute inset-16 rounded-full bg-brand-navy/10 flex items-center justify-center border border-brand-navy/20">
-                <div className="absolute inset-0 rounded-full animate-glow-pulse opacity-30" />
-                <span className="font-display text-6xl font-bold text-primary text-glow-gold">M</span>
+              {/* Center — actual logo */}
+              <div className="absolute inset-16 rounded-full bg-brand-navy/10 flex items-center justify-center border border-brand-navy/20 overflow-hidden">
+                <div className="absolute inset-0 rounded-full animate-glow-pulse opacity-20" />
+                <img
+                  src={logoVertical}
+                  alt="M Solution Digital"
+                  className="w-3/4 h-auto relative z-10 drop-shadow-[0_0_30px_hsl(45_95%_52%/0.3)]"
+                />
               </div>
 
-              {/* Circuit dots orbiting - like logo circuit traces */}
+              {/* Circuit dots orbiting */}
               {[0, 72, 144, 216, 288].map((deg, i) => (
                 <div
                   key={i}
@@ -102,6 +107,10 @@ const HeroSection = () => {
                   }}
                 />
               ))}
+
+              {/* Corner circuit decorations */}
+              <CircuitDecoration className="absolute -top-8 -right-6 h-[120px] w-8 opacity-30 rotate-[30deg]" />
+              <CircuitDecoration className="absolute -bottom-8 -left-6 h-[120px] w-8 opacity-20 rotate-[-20deg]" />
             </div>
           </div>
         </div>

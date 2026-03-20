@@ -1,4 +1,5 @@
 import CircuitBackground from "@/components/CircuitBackground";
+import Header from "@/components/Header";
 import HeroSection from "@/components/HeroSection";
 import ProblemsSection from "@/components/ProblemsSection";
 import SolutionSection from "@/components/SolutionSection";
@@ -17,6 +18,7 @@ const Index = () => {
   return (
     <div className="relative min-h-screen overflow-x-hidden">
       <CircuitBackground />
+      <Header />
       <HeroSection />
       <ProblemsSection />
       <SolutionSection />
