@@ -18,6 +18,7 @@ const Index = () => {
   return (
     <div className="relative min-h-screen overflow-x-hidden">
       <CircuitBackground />
+      <Header />
       <HeroSection />
       <ProblemsSection />
       <SolutionSection />
