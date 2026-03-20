@@ -1,20 +1,14 @@
 import { useScrollReveal } from "./useScrollReveal";
-import { Store, Wrench, Sofa, Palette, Target, MapPin, BarChart, Globe, Hammer, PaintBucket, Truck, Armchair, Ruler, ShoppingBag } from "lucide-react";
+import { Target, MapPin, BarChart, Globe, Palette, Store } from "lucide-react";
 import CircuitDecoration from "./CircuitDecoration";
+import storeConstruction from "@/assets/store-construction.jpg";
+import storeFurniture from "@/assets/store-furniture.jpg";
 
 const blocks = [
   {
     title: "Lojas de Material de Construção",
     subtitle: "Atraia quem está construindo ou reformando na sua região",
-    icon: Hammer,
-    color: "from-amber-500/10 to-orange-500/5",
-    borderColor: "hover:border-amber-500/30",
-    visual: [
-      { icon: PaintBucket, label: "Tintas" },
-      { icon: Wrench, label: "Ferramentas" },
-      { icon: Truck, label: "Materiais" },
-      { icon: Ruler, label: "Acabamentos" },
-    ],
+    image: storeConstruction,
     services: [
       { icon: Target, name: "Google Ads Local", desc: "Apareça no topo quando buscarem na sua cidade" },
       { icon: MapPin, name: "Google Meu Negócio", desc: "Domine o mapa da sua região" },
@@ -25,15 +19,7 @@ const blocks = [
   {
     title: "Lojas de Móveis",
     subtitle: "Mostre seus produtos para quem está pronto para mobiliar",
-    icon: Sofa,
-    color: "from-blue-500/10 to-indigo-500/5",
-    borderColor: "hover:border-blue-400/30",
-    visual: [
-      { icon: Sofa, label: "Sofás" },
-      { icon: Armchair, label: "Poltronas" },
-      { icon: ShoppingBag, label: "Decoração" },
-      { icon: Store, label: "Ambientes" },
-    ],
+    image: storeFurniture,
     services: [
       { icon: Palette, name: "Produção de Conteúdo", desc: "Fotos e vídeos que vendem" },
       { icon: Target, name: "Tráfego Pago (Meta + Google)", desc: "Anúncios que atraem compradores reais" },
@@ -66,39 +52,32 @@ const ServicesSection = () => {
           {blocks.map((block, i) => (
             <div
               key={i}
-              className={`relative group glass-surface rounded-3xl overflow-hidden border border-border/50 transition-all duration-700 ${block.borderColor} hover:shadow-[0_8px_60px_hsl(45_95%_52%/0.08)] ${
+              className={`relative group glass-surface rounded-3xl overflow-hidden border border-border/50 transition-all duration-700 hover:border-primary/30 hover:shadow-[0_8px_60px_hsl(45_95%_52%/0.08)] ${
                 isVisible ? "animate-fade-up" : "opacity-0"
               }`}
               style={{ animationDelay: `${i * 200}ms` }}
             >
-              {/* Gradient header with icon grid */}
-              <div className={`relative px-8 pt-8 pb-6 bg-gradient-to-br ${block.color}`}>
-                {/* Icon visual grid — represents the niche */}
-                <div className="flex items-center gap-3 mb-6">
-                  {block.visual.map((v, j) => (
-                    <div
-                      key={j}
-                      className="flex flex-col items-center gap-1.5 px-3 py-2.5 rounded-xl bg-white/[0.04] border border-white/[0.06] transition-all duration-300 group-hover:border-primary/15"
-                    >
-                      <v.icon className="w-5 h-5 text-primary" />
-                      <span className="text-[10px] font-medium text-muted-foreground uppercase tracking-wider">{v.label}</span>
-                    </div>
-                  ))}
-                </div>
+              {/* Image header */}
+              <div className="relative h-56 sm:h-64 overflow-hidden">
+                <img
+                  src={block.image}
+                  alt={block.title}
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                />
+                {/* Gradient overlay for text legibility */}
+                <div className="absolute inset-0 bg-gradient-to-t from-[hsl(220_35%_7%)] via-[hsl(220_35%_7%/0.6)] to-transparent" />
 
-                <div className="flex items-center gap-4">
-                  <div className="w-14 h-14 rounded-2xl bg-brand-navy/30 border border-brand-navy/40 flex items-center justify-center shrink-0 transition-all duration-300 group-hover:bg-primary/15 group-hover:border-primary/30">
-                    <block.icon className="w-7 h-7 text-primary" />
-                  </div>
-                  <div>
-                    <h3 className="font-display text-xl lg:text-2xl font-bold leading-tight">{block.title}</h3>
-                    <p className="text-sm text-muted-foreground mt-1">{block.subtitle}</p>
-                  </div>
+                {/* Title over image */}
+                <div className="absolute bottom-0 left-0 right-0 p-6 sm:p-8">
+                  <h3 className="font-display text-xl sm:text-2xl font-bold leading-tight text-foreground">
+                    {block.title}
+                  </h3>
+                  <p className="text-sm text-muted-foreground mt-1.5">{block.subtitle}</p>
                 </div>
               </div>
 
               {/* Services list */}
-              <div className="px-8 py-6 space-y-3">
+              <div className="px-6 sm:px-8 py-6 space-y-3">
                 <p className="text-xs font-semibold text-primary tracking-widest uppercase mb-4">O que fazemos</p>
                 {block.services.map((s, j) => (
                   <div

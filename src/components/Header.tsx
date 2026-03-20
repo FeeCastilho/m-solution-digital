@@ -42,7 +42,7 @@ const Header = () => {
             src={logoHorizontal}
             alt="M Solution Digital"
             className={`transition-all duration-500 ${
-              scrolled ? "h-10 sm:h-11 lg:h-12" : "h-12 sm:h-14 lg:h-16"
+              scrolled ? "h-12 sm:h-14 lg:h-14" : "h-14 sm:h-16 lg:h-20"
             }`}
           />
           {/* Subtle gold glow on hover */}
