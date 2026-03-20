@@ -1,4 +1,5 @@
 import CircuitBackground from "@/components/CircuitBackground";
+import Header from "@/components/Header";
 import HeroSection from "@/components/HeroSection";
 import ProblemsSection from "@/components/ProblemsSection";
 import SolutionSection from "@/components/SolutionSection";
