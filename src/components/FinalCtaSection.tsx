@@ -1,23 +1,26 @@
 import { MessageCircle } from "lucide-react";
+import CircuitDecoration from "./CircuitDecoration";
 
-const WHATSAPP_LINK = "https://wa.me/5500000000000?text=Olá! Quero falar com um especialista da M Solution Digital";
+const WHATSAPP_LINK = "https://wa.me/5511930093582?text=Olá! Quero falar com um especialista da M Solution Digital";
 
 const FinalCtaSection = () => {
   return (
     <section className="relative py-32 lg:py-40 overflow-hidden">
-      {/* Background glow */}
+      <CircuitDecoration className="absolute top-0 left-16 h-[200px] w-10 opacity-20 hidden lg:block" />
+      <CircuitDecoration className="absolute bottom-0 right-20 h-[180px] w-10 opacity-15 hidden lg:block rotate-180" />
+
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[500px] rounded-full opacity-[0.08]"
-          style={{ background: "radial-gradient(circle, hsl(48 100% 50%) 0%, transparent 70%)" }} />
+          style={{ background: "radial-gradient(circle, hsl(215 55% 30%) 0%, transparent 70%)" }} />
       </div>
 
       <div className="container relative z-10 mx-auto px-6 text-center space-y-10">
         <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight max-w-4xl mx-auto">
           Quer clientes chamando no seu WhatsApp{" "}
-          <span className="text-primary text-glow-yellow">todos os dias?</span>
+          <span className="text-primary text-glow-gold">todos os dias?</span>
         </h2>
         <p className="text-lg text-muted-foreground max-w-xl mx-auto">
-          Fale com um especialista agora e descubra como o Método M System™ pode funcionar para o seu negócio.
+          Fale com um especialista agora e descubra como o Método M System™ pode transformar sua loja.
         </p>
         <a
           href={WHATSAPP_LINK}

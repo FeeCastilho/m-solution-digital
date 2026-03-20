@@ -2,12 +2,12 @@ import { useScrollReveal } from "./useScrollReveal";
 import { TrendingDown, Users, Clock, DollarSign, Search, ShieldOff } from "lucide-react";
 
 const problems = [
-  { icon: TrendingDown, text: "Poucas vendas e leads sem qualidade" },
-  { icon: Users, text: "Clientes não encontram sua empresa online" },
-  { icon: Clock, text: "Tempo investido sem retorno previsível" },
-  { icon: DollarSign, text: "Dinheiro desperdiçado em tráfego mal feito" },
-  { icon: Search, text: "Não aparece no Google quando pesquisam" },
-  { icon: ShieldOff, text: "Concorrência está passando na frente" },
+  { icon: TrendingDown, text: "Poucas vendas e clientes que só pesquisam preço" },
+  { icon: Users, text: "Clientes não encontram sua loja no Google" },
+  { icon: Clock, text: "Investimento em panfleto e rádio sem retorno" },
+  { icon: DollarSign, text: "Concorrentes grandes dominando a região" },
+  { icon: Search, text: "WhatsApp parado — sem mensagens de clientes novos" },
+  { icon: ShieldOff, text: "Presença digital fraca ou inexistente" },
 ];
 
 const ProblemsSection = () => {
@@ -15,12 +15,15 @@ const ProblemsSection = () => {
 
   return (
     <section className="relative py-24 lg:py-32" ref={ref}>
+      {/* Circuit line divider */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-px h-16 circuit-line-vertical" />
+
       <div className="container mx-auto px-6">
         <div className="text-center mb-16 space-y-4">
           <p className="text-primary text-sm font-semibold tracking-widest uppercase">Você se identifica?</p>
           <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold">
-            Se algum desses problemas é seu,{" "}
-            <span className="text-primary text-glow-yellow">você está no lugar certo</span>
+            Sua loja de construção ou móveis{" "}
+            <span className="text-primary text-glow-gold">enfrenta isso?</span>
           </h2>
         </div>
 
