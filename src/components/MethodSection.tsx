@@ -18,12 +18,12 @@ const MethodSection = () => {
 
       <div className="container mx-auto px-6">
         <div className="text-center mb-16 space-y-4">
-          <p className="text-primary text-sm font-semibold tracking-widest uppercase">Nosso Método</p>
+          <p className="text-primary text-sm font-semibold tracking-widest uppercase">Como Funciona</p>
           <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold">
-            O Método <span className="text-primary text-glow-gold">M System™</span>
+            Nossa <span className="text-primary text-glow-gold">metodologia</span> em 4 etapas
           </h2>
           <p className="text-muted-foreground max-w-xl mx-auto">
-            Um processo proprietário de 4 etapas que transforma lojas em referência digital na região.
+            Um processo estruturado que transforma lojas em referência digital na região.
           </p>
         </div>
 

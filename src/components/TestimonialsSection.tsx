@@ -1,23 +1,23 @@
 import { useScrollReveal } from "./useScrollReveal";
-import { Star } from "lucide-react";
+import { Star, Quote } from "lucide-react";
 
 const testimonials = [
   {
     name: "Ricardo Mendes",
-    role: "Dono de loja de materiais",
-    text: "Em 30 dias, meu WhatsApp não parava de receber pedidos de orçamento. Triplicamos o faturamento.",
+    role: "Dono de loja de materiais de construção",
+    text: "Em 30 dias, meu WhatsApp não parava de receber pedidos de orçamento. Triplicamos o faturamento no trimestre.",
     initials: "RM",
   },
   {
     name: "Camila Ferreira",
-    role: "Loja de móveis planejados",
+    role: "Proprietária de loja de móveis planejados",
     text: "Antes eu não aparecia no Google. Hoje sou a primeira opção quando pesquisam móveis na minha cidade.",
     initials: "CF",
   },
   {
     name: "Anderson Costa",
-    role: "Rede de material de construção",
-    text: "O método deles é diferente de tudo que já vi. Resultado real, sem promessas vazias. Recomendo demais.",
+    role: "Rede de material de construção — 3 unidades",
+    text: "A equipe entende nosso segmento de verdade. Resultado real, sem promessas vazias. Recomendo demais.",
     initials: "AC",
   },
 ];
@@ -27,8 +27,6 @@ const TestimonialsSection = () => {
 
   return (
     <section className="relative py-24 lg:py-32" ref={ref}>
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-px h-16 circuit-line-vertical" />
-
       <div className="container mx-auto px-6">
         <div className="text-center mb-16 space-y-4">
           <p className="text-primary text-sm font-semibold tracking-widest uppercase">Depoimentos</p>
@@ -41,19 +39,20 @@ const TestimonialsSection = () => {
           {testimonials.map((t, i) => (
             <div
               key={i}
-              className={`glass-surface glass-surface-hover rounded-xl p-6 space-y-4 transition-all duration-500 ${
+              className={`relative glass-surface rounded-2xl p-7 space-y-5 transition-all duration-500 hover:border-glow hover:shadow-[0_8px_40px_hsl(45_95%_48%/0.08)] ${
                 isVisible ? "animate-fade-up" : "opacity-0"
               }`}
-              style={{ animationDelay: `${i * 100}ms` }}
+              style={{ animationDelay: `${i * 120}ms` }}
             >
+              <Quote className="w-8 h-8 text-primary/25 absolute top-5 right-5" />
               <div className="flex gap-1">
                 {[...Array(5)].map((_, j) => (
                   <Star key={j} className="w-4 h-4 fill-primary text-primary" />
                 ))}
               </div>
-              <p className="text-sm text-muted-foreground leading-relaxed italic">"{t.text}"</p>
-              <div className="flex items-center gap-3 pt-2 border-t border-border">
-                <div className="w-10 h-10 rounded-full bg-brand-navy/30 border border-brand-navy/40 flex items-center justify-center text-xs font-bold text-primary">
+              <p className="text-sm text-muted-foreground leading-relaxed">"{t.text}"</p>
+              <div className="flex items-center gap-3 pt-3 border-t border-border">
+                <div className="w-11 h-11 rounded-full bg-accent flex items-center justify-center text-xs font-bold text-accent-foreground shadow-sm">
                   {t.initials}
                 </div>
                 <div>
