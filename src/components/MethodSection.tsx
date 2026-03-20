@@ -13,7 +13,7 @@ const MethodSection = () => {
   const { ref, isVisible } = useScrollReveal();
 
   return (
-    <section className="relative py-24 lg:py-32" ref={ref}>
+    <section id="metodo" className="relative py-24 lg:py-32" ref={ref}>
       <CircuitDecoration className="absolute top-0 left-10 h-[180px] w-10 opacity-15 hidden lg:block" />
 
       <div className="container mx-auto px-6">

@@ -13,7 +13,7 @@ const FaqSection = () => {
   const { ref, isVisible } = useScrollReveal();
 
   return (
-    <section className="relative py-24 lg:py-32" ref={ref}>
+    <section id="faq" className="relative py-24 lg:py-32" ref={ref}>
       <div className="container mx-auto px-6">
         <div className={`max-w-3xl mx-auto ${isVisible ? "animate-fade-up" : "opacity-0"}`}>
           <div className="text-center mb-12 space-y-4">

@@ -30,7 +30,7 @@ const ServicesSection = () => {
   const { ref, isVisible } = useScrollReveal();
 
   return (
-    <section className="relative py-24 lg:py-32" ref={ref}>
+    <section id="servicos" className="relative py-24 lg:py-32" ref={ref}>
       {/* Circuit divider */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-px h-16 circuit-line-vertical" />
 

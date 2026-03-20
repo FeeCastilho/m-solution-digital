@@ -11,7 +11,7 @@ const SocialProofSection = () => {
   const { ref, isVisible } = useScrollReveal();
 
   return (
-    <section className="relative py-24 lg:py-32" ref={ref}>
+    <section id="resultados" className="relative py-24 lg:py-32" ref={ref}>
       <div className="container mx-auto px-6">
         <div className="text-center mb-16 space-y-4">
           <p className="text-primary text-sm font-semibold tracking-widest uppercase">Resultados Reais</p>
