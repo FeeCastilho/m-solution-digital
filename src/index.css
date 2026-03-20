@@ -6,44 +6,44 @@
 
 @layer base {
   :root {
-    --background: 220 40% 4%;
-    --foreground: 0 0% 95%;
+    --background: 220 20% 97%;
+    --foreground: 220 30% 15%;
 
-    --card: 220 35% 7%;
-    --card-foreground: 0 0% 95%;
+    --card: 0 0% 100%;
+    --card-foreground: 220 30% 15%;
 
-    --popover: 220 35% 7%;
-    --popover-foreground: 0 0% 95%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 30% 15%;
 
     /* Gold/Yellow from logo */
-    --primary: 45 95% 52%;
-    --primary-foreground: 220 40% 4%;
+    --primary: 45 95% 48%;
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 220 25% 12%;
-    --secondary-foreground: 0 0% 75%;
+    --secondary: 220 15% 92%;
+    --secondary-foreground: 220 20% 40%;
 
-    --muted: 220 20% 15%;
-    --muted-foreground: 220 10% 55%;
+    --muted: 220 15% 93%;
+    --muted-foreground: 220 10% 45%;
 
     /* Navy blue from logo */
     --accent: 215 55% 25%;
-    --accent-foreground: 0 0% 95%;
+    --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84% 60%;
-    --destructive-foreground: 0 0% 95%;
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 220 20% 14%;
-    --input: 220 20% 14%;
-    --ring: 45 95% 52%;
+    --border: 220 15% 88%;
+    --input: 220 15% 88%;
+    --ring: 45 95% 48%;
 
     --radius: 0.75rem;
 
     /* Brand tokens from logo */
     --brand-navy: 215 55% 25%;
-    --brand-navy-deep: 220 40% 15%;
-    --brand-gold: 45 95% 52%;
-    --brand-silver: 220 15% 65%;
-    --brand-silver-dark: 220 10% 45%;
+    --brand-navy-deep: 220 40% 18%;
+    --brand-gold: 45 95% 48%;
+    --brand-silver: 220 10% 50%;
+    --brand-silver-dark: 220 10% 35%;
   }
 }
 
