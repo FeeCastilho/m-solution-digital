@@ -10,12 +10,13 @@ const AuthoritySection = () => {
           <p className="text-primary text-sm font-semibold tracking-widest uppercase">Sobre nós</p>
           <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight">
             Somos especialistas em transformar{" "}
-            <span className="text-primary text-glow-yellow">presença digital em faturamento real</span>
+            <span className="text-primary text-glow-gold">lojas em referência digital</span>
           </h2>
-          <p className="text-lg text-muted-foreground leading-relaxed" style={{ textWrap: "pretty" }}>
-            A M Solution Digital nasceu com uma missão: acabar com o marketing genérico que não gera resultado. 
-            Nosso time combina tecnologia, dados e criatividade para entregar o que realmente importa — 
-            clientes no seu WhatsApp, prontos para comprar.
+          <p className="text-lg text-muted-foreground leading-relaxed" style={{ textWrap: "pretty" as any }}>
+            A M Solution Digital nasceu focada em um único segmento: lojas de material de construção e lojas de móveis.
+            Conhecemos os desafios, o público e as oportunidades desse mercado como ninguém. 
+            Nosso time combina tecnologia, dados e criatividade para entregar o que importa — 
+            clientes reais no seu WhatsApp, prontos para comprar.
           </p>
         </div>
       </div>

@@ -1,37 +1,29 @@
 import { MessageCircle } from "lucide-react";
+import logoHorizontal from "@/assets/logo-horizontal.png";
+import CircuitDecoration from "./CircuitDecoration";
 
-const WHATSAPP_LINK = "https://wa.me/5500000000000?text=Olá! Quero falar com um especialista da M Solution Digital";
+const WHATSAPP_LINK = "https://wa.me/5511930093582?text=Olá! Quero falar com um especialista da M Solution Digital";
 
 const HeroSection = () => {
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden">
-      {/* Energy lines flowing to CTA */}
+      {/* Circuit decorations from logo identity */}
+      <CircuitDecoration className="absolute top-0 left-8 h-[300px] w-10 opacity-40 hidden lg:block" />
+      <CircuitDecoration className="absolute top-20 right-12 h-[250px] w-10 opacity-25 hidden lg:block" />
+
+      {/* Energy lines SVG */}
       <div className="absolute inset-0 pointer-events-none">
         <svg className="absolute inset-0 w-full h-full" preserveAspectRatio="none">
           <defs>
             <linearGradient id="energyGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stopColor="hsl(210 100% 50%)" stopOpacity="0" />
-              <stop offset="50%" stopColor="hsl(48 100% 50%)" stopOpacity="0.3" />
-              <stop offset="100%" stopColor="hsl(48 100% 50%)" stopOpacity="0" />
+              <stop offset="0%" stopColor="hsl(215 55% 30%)" stopOpacity="0" />
+              <stop offset="50%" stopColor="hsl(45 95% 52%)" stopOpacity="0.25" />
+              <stop offset="100%" stopColor="hsl(45 95% 52%)" stopOpacity="0" />
             </linearGradient>
           </defs>
-          <path
-            d="M 0 200 Q 200 180 400 300 Q 600 420 800 350 Q 1000 280 1200 500"
-            fill="none"
-            stroke="url(#energyGrad)"
-            strokeWidth="1"
-            className="animate-circuit-dash"
-            strokeDasharray="1000"
-          />
-          <path
-            d="M 100 100 Q 300 250 500 200 Q 700 150 900 400 Q 1100 600 1300 550"
-            fill="none"
-            stroke="url(#energyGrad)"
-            strokeWidth="0.5"
-            className="animate-circuit-dash"
-            strokeDasharray="1000"
-            style={{ animationDelay: "0.5s" }}
-          />
+          <path d="M 0 200 Q 200 180 400 300 Q 600 420 800 350 Q 1000 280 1200 500"
+            fill="none" stroke="url(#energyGrad)" strokeWidth="1"
+            className="animate-circuit-dash" strokeDasharray="1000" />
         </svg>
       </div>
 
@@ -39,22 +31,26 @@ const HeroSection = () => {
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           {/* Left - Text */}
           <div className="space-y-8">
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border-glow-blue glass-surface">
-              <div className="w-2 h-2 rounded-full bg-primary animate-glow-pulse" />
+            {/* Logo */}
+            <img src={logoHorizontal} alt="M Solution Digital" className="h-14 sm:h-16 w-auto" />
+
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border-glow-navy glass-navy">
+              <div className="circuit-dot" style={{ width: 6, height: 6 }} />
               <span className="text-sm text-muted-foreground tracking-wider uppercase">
-                Método Exclusivo de Aquisição Digital
+                Especialistas em Lojas de Construção e Móveis
               </span>
             </div>
 
             <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold leading-[0.95] tracking-tight">
-              Transformamos sua empresa em uma{" "}
-              <span className="text-primary text-glow-yellow">máquina de clientes</span>{" "}
-              no WhatsApp
+              Transformamos sua{" "}
+              <span className="text-primary text-glow-gold">loja</span>{" "}
+              em uma máquina de clientes no WhatsApp
             </h1>
 
-            <p className="text-lg sm:text-xl text-muted-foreground max-w-xl leading-relaxed" style={{ textWrap: "pretty" }}>
-              Através de estratégia, tecnologia e posicionamento digital — 
-              conectamos sua marca aos clientes certos, todos os dias.
+            <p className="text-lg sm:text-xl text-muted-foreground max-w-xl leading-relaxed" style={{ textWrap: "pretty" as any }}>
+              Estratégia, tecnologia e posicionamento digital para lojas de{" "}
+              <span className="text-brand-silver font-medium">material de construção</span> e{" "}
+              <span className="text-brand-silver font-medium">lojas de móveis</span> que querem vender mais todos os dias.
             </p>
 
             <a
@@ -67,44 +63,42 @@ const HeroSection = () => {
               FALAR COM ESPECIALISTA NO WHATSAPP
             </a>
 
-            {/* Social proof mini */}
             <div className="flex items-center gap-4 pt-2">
               <div className="flex -space-x-2">
                 {["M.R", "A.S", "C.L", "P.F"].map((initials, i) => (
-                  <div key={i} className="w-9 h-9 rounded-full bg-secondary border-2 border-background flex items-center justify-center text-xs font-medium text-secondary-foreground">
+                  <div key={i} className="w-9 h-9 rounded-full bg-brand-navy border-2 border-background flex items-center justify-center text-xs font-medium text-foreground">
                     {initials}
                   </div>
                 ))}
               </div>
               <p className="text-sm text-muted-foreground">
-                <span className="text-foreground font-semibold">+127 empresas</span> já usam nosso método
+                <span className="text-foreground font-semibold">+127 lojas</span> já usam nosso método
               </p>
             </div>
           </div>
 
-          {/* Right - Abstract Visual */}
+          {/* Right - Logo visual with circuit orbits */}
           <div className="relative hidden lg:flex items-center justify-center">
             <div className="relative w-80 h-80 xl:w-96 xl:h-96">
-              {/* Rotating rings */}
-              <div className="absolute inset-0 rounded-full border border-primary/20 animate-[spin_20s_linear_infinite]" />
-              <div className="absolute inset-4 rounded-full border border-primary/10 animate-[spin_15s_linear_infinite_reverse]" />
-              <div className="absolute inset-8 rounded-full border border-primary/5 animate-[spin_25s_linear_infinite]" />
+              {/* Orbiting rings in brand navy */}
+              <div className="absolute inset-0 rounded-full border border-brand-navy/30 animate-[spin_20s_linear_infinite]" />
+              <div className="absolute inset-6 rounded-full border border-brand-gold/15 animate-[spin_15s_linear_infinite_reverse]" />
+              <div className="absolute inset-12 rounded-full border border-brand-navy/10 animate-[spin_25s_linear_infinite]" />
 
-              {/* Center glow */}
-              <div className="absolute inset-12 rounded-full bg-primary/5 flex items-center justify-center">
-                <div className="absolute inset-0 rounded-full animate-glow-pulse" />
-                <span className="font-display text-5xl font-bold text-primary text-glow-yellow">M</span>
+              {/* Center with logo */}
+              <div className="absolute inset-16 rounded-full bg-brand-navy/10 flex items-center justify-center border border-brand-navy/20">
+                <div className="absolute inset-0 rounded-full animate-glow-pulse opacity-30" />
+                <span className="font-display text-6xl font-bold text-primary text-glow-gold">M</span>
               </div>
 
-              {/* Floating dots */}
-              {[0, 60, 120, 180, 240, 300].map((deg, i) => (
+              {/* Circuit dots orbiting - like logo circuit traces */}
+              {[0, 72, 144, 216, 288].map((deg, i) => (
                 <div
                   key={i}
-                  className="absolute w-2 h-2 rounded-full bg-primary/60"
+                  className="absolute circuit-dot"
                   style={{
                     top: `${50 + 45 * Math.sin((deg * Math.PI) / 180)}%`,
                     left: `${50 + 45 * Math.cos((deg * Math.PI) / 180)}%`,
-                    animationDelay: `${i * 0.5}s`,
                   }}
                 />
               ))}
