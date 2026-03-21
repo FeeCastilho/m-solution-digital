@@ -3,10 +3,10 @@ import { Crosshair, Layers, Zap, BarChart3 } from "lucide-react";
 import CircuitDecoration from "./CircuitDecoration";
 
 const steps = [
-  { icon: Crosshair, num: "01", title: "Diagnóstico", desc: "Analisamos sua loja, concorrência local e oportunidades reais na região." },
-  { icon: Layers, num: "02", title: "Estratégia", desc: "Criamos o plano de ataque personalizado para seu segmento." },
-  { icon: Zap, num: "03", title: "Ativação", desc: "Implementamos campanhas, Google Ads e automações de WhatsApp." },
-  { icon: BarChart3, num: "04", title: "Escala", desc: "Otimizamos resultados e escalamos o que gera mais clientes." },
+  { icon: Crosshair, num: "01", title: "Diagnóstico", desc: "Analisamos sua loja, concorrência local e oportunidades reais na região.", color: "from-blue-500/20 to-blue-600/10" },
+  { icon: Layers, num: "02", title: "Estratégia", desc: "Criamos o plano de ataque personalizado para seu segmento.", color: "from-violet-500/20 to-violet-600/10" },
+  { icon: Zap, num: "03", title: "Ativação", desc: "Implementamos campanhas, Google Ads e automações de WhatsApp.", color: "from-amber-500/20 to-amber-600/10" },
+  { icon: BarChart3, num: "04", title: "Escala", desc: "Otimizamos resultados e escalamos o que gera mais clientes.", color: "from-emerald-500/20 to-emerald-600/10" },
 ];
 
 const MethodSection = () => {
@@ -29,32 +29,54 @@ const MethodSection = () => {
 
         <div className="relative max-w-5xl mx-auto">
           {/* Connection line with energy flow */}
-          <div className="hidden lg:block absolute top-1/2 left-0 right-0 h-px -translate-y-1/2">
-            <div className="w-full h-full bg-gradient-to-r from-transparent via-primary/30 to-transparent animate-energy-flow"
+          <div className="hidden lg:block absolute top-1/2 left-[7%] right-[7%] -translate-y-1/2 z-0">
+            <div className="w-full h-[2px] bg-gradient-to-r from-primary/10 via-primary/40 to-primary/10 rounded-full" />
+            <div className="absolute inset-0 h-[2px] bg-gradient-to-r from-transparent via-primary/60 to-transparent animate-energy-flow rounded-full"
               style={{ backgroundSize: "200% 100%" }} />
           </div>
-          {/* Circuit dots on the line */}
-          <div className="hidden lg:flex absolute top-1/2 left-0 right-0 -translate-y-1/2 justify-between px-[12%]">
-            {[0,1,2].map(i => <div key={i} className="circuit-dot" />)}
-          </div>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 relative z-10">
             {steps.map((step, i) => (
               <div
                 key={i}
-                className={`group relative glass-surface rounded-xl p-6 text-center transition-all duration-500 hover:border-glow hover:box-glow-gold ${
-                  isVisible ? "animate-fade-up" : "opacity-0"
-                }`}
-                style={{ animationDelay: `${i * 120}ms` }}
+                className={`group relative ${isVisible ? "animate-fade-up" : "opacity-0"}`}
+                style={{ animationDelay: `${i * 150}ms` }}
               >
-                <span className="text-brand-navy/40 font-display text-5xl font-bold absolute top-3 right-4">{step.num}</span>
-                <div className="relative z-10 space-y-4">
-                  <div className="mx-auto w-14 h-14 rounded-xl bg-brand-navy/20 flex items-center justify-center border border-brand-navy/30 transition-all duration-300 group-hover:bg-primary/20 group-hover:border-primary/30">
-                    <step.icon className="w-7 h-7 text-primary" />
+                {/* Card */}
+                <div className="relative h-full rounded-2xl bg-card border border-border/60 p-6 text-center transition-all duration-500 group-hover:border-primary/30 group-hover:shadow-[0_12px_40px_hsl(45_95%_48%/0.12),0_4px_16px_hsl(215_55%_25%/0.06)]">
+                  {/* Gradient background on hover */}
+                  <div className={`absolute inset-0 rounded-2xl bg-gradient-to-br ${step.color} opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
+                  
+                  <div className="relative z-10 space-y-5">
+                    {/* Step number badge */}
+                    <div className="flex justify-center">
+                      <div className="relative">
+                        <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-accent/10 to-accent/5 border border-accent/20 flex items-center justify-center transition-all duration-500 group-hover:from-primary/20 group-hover:to-primary/10 group-hover:border-primary/30 group-hover:shadow-[0_0_30px_hsl(45_95%_48%/0.2)]">
+                          <step.icon className="w-8 h-8 text-accent transition-all duration-500 group-hover:text-primary group-hover:scale-110 group-hover:drop-shadow-[0_0_8px_hsl(45_95%_48%/0.5)]" />
+                        </div>
+                        {/* Floating number */}
+                        <span className="absolute -top-2 -right-2 w-7 h-7 rounded-full bg-primary text-primary-foreground text-xs font-bold font-display flex items-center justify-center shadow-[0_2px_10px_hsl(45_95%_48%/0.4)]">
+                          {step.num}
+                        </span>
+                      </div>
+                    </div>
+
+                    <h3 className="font-display text-xl font-bold text-foreground">{step.title}</h3>
+                    <p className="text-sm text-muted-foreground leading-relaxed">{step.desc}</p>
                   </div>
-                  <h3 className="font-display text-xl font-bold">{step.title}</h3>
-                  <p className="text-sm text-muted-foreground leading-relaxed">{step.desc}</p>
+
+                  {/* Bottom accent */}
+                  <div className="absolute bottom-0 left-4 right-4 h-0.5 rounded-full overflow-hidden">
+                    <div className="h-full w-0 group-hover:w-full bg-gradient-to-r from-primary via-primary/80 to-primary/40 transition-all duration-700 ease-out" />
+                  </div>
                 </div>
+
+                {/* Arrow connector (between cards on desktop) */}
+                {i < 3 && (
+                  <div className="hidden lg:flex absolute -right-4 top-1/2 -translate-y-1/2 z-20">
+                    <div className="w-3 h-3 border-r-2 border-t-2 border-primary/40 rotate-45" />
+                  </div>
+                )}
               </div>
             ))}
           </div>
