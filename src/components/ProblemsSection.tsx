@@ -4,12 +4,12 @@ import storeConstruction from "@/assets/store-construction.jpg";
 import storeFurniture from "@/assets/store-furniture.jpg";
 
 const problems = [
-  { icon: TrendingDown, text: "Poucas vendas e clientes que só pesquisam preço" },
-  { icon: Users, text: "Clientes não encontram sua loja no Google" },
-  { icon: Clock, text: "Investimento em panfleto e rádio sem retorno" },
-  { icon: DollarSign, text: "Concorrentes grandes dominando a região" },
-  { icon: Search, text: "WhatsApp parado — sem mensagens de clientes novos" },
-  { icon: ShieldOff, text: "Presença digital fraca ou inexistente" },
+  { icon: TrendingDown, text: "Poucas vendas e clientes que só pesquisam preço", highlight: "Poucas vendas" },
+  { icon: Users, text: "Clientes não encontram sua loja no Google", highlight: "não encontram" },
+  { icon: Clock, text: "Investimento em panfleto e rádio sem retorno", highlight: "sem retorno" },
+  { icon: DollarSign, text: "Concorrentes grandes dominando a região", highlight: "dominando" },
+  { icon: Search, text: "WhatsApp parado — sem mensagens de clientes novos", highlight: "WhatsApp parado" },
+  { icon: ShieldOff, text: "Presença digital fraca ou inexistente", highlight: "fraca ou inexistente" },
 ];
 
 const ProblemsSection = () => {
@@ -63,20 +63,42 @@ const ProblemsSection = () => {
           </div>
         </div>
 
-        {/* Problem cards */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 max-w-5xl mx-auto">
+        {/* Problem cards — redesigned */}
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
           {problems.map((p, i) => (
             <div
               key={i}
-              className={`group glass-surface rounded-2xl p-7 cursor-default transition-all duration-500 hover:border-glow hover:shadow-[0_8px_30px_hsl(45_95%_48%/0.08)] ${
+              className={`group relative rounded-2xl p-px cursor-default transition-all duration-500 ${
                 isVisible ? "animate-fade-up" : "opacity-0"
               }`}
-              style={{ animationDelay: `${200 + i * 80}ms` }}
+              style={{ animationDelay: `${200 + i * 100}ms` }}
             >
-              <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4 transition-all duration-300 group-hover:bg-primary/20 group-hover:shadow-[0_0_20px_hsl(45_95%_48%/0.15)]">
-                <p.icon className="w-6 h-6 text-primary transition-transform duration-300 group-hover:scale-110" />
+              {/* Gradient border on hover */}
+              <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-primary/0 via-primary/0 to-primary/0 group-hover:from-primary/30 group-hover:via-primary/10 group-hover:to-accent/20 transition-all duration-500" />
+              
+              <div className="relative h-full rounded-2xl bg-card p-6 flex flex-col gap-4 border border-border/60 group-hover:border-primary/20 group-hover:shadow-[0_8px_40px_hsl(45_95%_48%/0.1),0_2px_12px_hsl(215_55%_25%/0.06)] transition-all duration-500">
+                {/* Icon + number */}
+                <div className="flex items-center justify-between">
+                  <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-primary/15 to-primary/5 flex items-center justify-center transition-all duration-500 group-hover:from-primary/25 group-hover:to-primary/10 group-hover:shadow-[0_0_24px_hsl(45_95%_48%/0.2)]">
+                    <p.icon className="w-7 h-7 text-primary transition-all duration-500 group-hover:scale-110 group-hover:drop-shadow-[0_0_8px_hsl(45_95%_48%/0.4)]" />
+                  </div>
+                  <span className="text-3xl font-display font-bold text-border/80 group-hover:text-primary/20 transition-colors duration-500">
+                    0{i + 1}
+                  </span>
+                </div>
+
+                {/* Text */}
+                <p className="text-foreground font-semibold leading-snug text-[15px]">
+                  {p.text}
+                </p>
+
+                {/* Bottom accent line */}
+                <div className="mt-auto pt-4">
+                  <div className="h-0.5 rounded-full bg-border/50 overflow-hidden">
+                    <div className="h-full w-0 group-hover:w-full bg-gradient-to-r from-primary to-primary/50 transition-all duration-700 ease-out rounded-full" />
+                  </div>
+                </div>
               </div>
-              <p className="text-foreground font-medium leading-snug">{p.text}</p>
             </div>
           ))}
         </div>
