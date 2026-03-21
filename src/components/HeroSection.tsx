@@ -6,7 +6,7 @@ const WHATSAPP_LINK = "https://wa.me/5511930093582?text=Olá! Quero falar com um
 
 const HeroSection = () => {
   return (
-    <section className="relative min-h-screen flex items-center overflow-hidden pt-24 lg:pt-0">
+    <section className="relative min-h-screen flex items-center overflow-hidden pt-32 lg:pt-32">
       {/* Circuit decorations from logo identity */}
       <CircuitDecoration className="absolute top-20 left-8 h-[300px] w-10 opacity-40 hidden lg:block" />
       <CircuitDecoration className="absolute top-32 right-12 h-[250px] w-10 opacity-25 hidden lg:block" />
