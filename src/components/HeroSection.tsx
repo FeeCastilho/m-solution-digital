@@ -1,16 +1,29 @@
 import { MessageCircle } from "lucide-react";
 import logoVertical from "@/assets/logo-vertical.png";
 import CircuitDecoration from "./CircuitDecoration";
+import { useParallax } from "@/hooks/useParallax";
 
 const WHATSAPP_LINK = "https://wa.me/5511930093582?text=Olá! Quero falar com um especialista da M Solution Digital";
 
 const HeroSection = () => {
+  const slowY = useParallax(0.04);
+  const medY = useParallax(0.08);
+
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden pt-32 lg:pt-32">
-      {/* Circuit decorations from logo identity */}
-      <CircuitDecoration className="absolute top-20 left-8 h-[300px] w-10 opacity-40 hidden lg:block" />
-      <CircuitDecoration className="absolute top-32 right-12 h-[250px] w-10 opacity-25 hidden lg:block" />
-      <CircuitDecoration className="absolute bottom-20 left-[20%] h-[200px] w-10 opacity-15 hidden lg:block" />
+      {/* Circuit decorations with parallax */}
+      <CircuitDecoration
+        className="absolute top-20 left-8 h-[300px] w-10 opacity-40 hidden lg:block"
+        style={{ transform: `translateY(${slowY}px)` }}
+      />
+      <CircuitDecoration
+        className="absolute top-32 right-12 h-[250px] w-10 opacity-25 hidden lg:block"
+        style={{ transform: `translateY(${-medY}px)` }}
+      />
+      <CircuitDecoration
+        className="absolute bottom-20 left-[20%] h-[200px] w-10 opacity-15 hidden lg:block"
+        style={{ transform: `translateY(${slowY * 0.5}px)` }}
+      />
 
       {/* Energy lines SVG */}
       <div className="absolute inset-0 pointer-events-none">
@@ -78,15 +91,15 @@ const HeroSection = () => {
             </div>
           </div>
 
-          {/* Right - Brand visual with logo prominently */}
+          {/* Right - Brand visual with logo and parallax */}
           <div className="relative hidden lg:flex items-center justify-center">
-            <div className="relative w-[420px] h-[420px] xl:w-[480px] xl:h-[480px]">
-              {/* Orbiting rings in brand navy */}
+            <div className="relative w-[420px] h-[420px] xl:w-[480px] xl:h-[480px]" style={{ transform: `translateY(${-slowY}px)` }}>
+              {/* Orbiting rings */}
               <div className="absolute inset-0 rounded-full border border-brand-navy/30 animate-[spin_20s_linear_infinite]" />
               <div className="absolute inset-6 rounded-full border border-brand-gold/15 animate-[spin_15s_linear_infinite_reverse]" />
               <div className="absolute inset-12 rounded-full border border-brand-navy/10 animate-[spin_25s_linear_infinite]" />
 
-              {/* Center — actual logo */}
+              {/* Center logo */}
               <div className="absolute inset-16 rounded-full bg-brand-navy/10 flex items-center justify-center border border-brand-navy/20 overflow-hidden">
                 <div className="absolute inset-0 rounded-full animate-glow-pulse opacity-20" />
                 <img
@@ -96,7 +109,7 @@ const HeroSection = () => {
                 />
               </div>
 
-              {/* Circuit dots orbiting */}
+              {/* Circuit dots */}
               {[0, 72, 144, 216, 288].map((deg, i) => (
                 <div
                   key={i}
@@ -108,7 +121,6 @@ const HeroSection = () => {
                 />
               ))}
 
-              {/* Corner circuit decorations */}
               <CircuitDecoration className="absolute -top-8 -right-6 h-[120px] w-8 opacity-30 rotate-[30deg]" />
               <CircuitDecoration className="absolute -bottom-8 -left-6 h-[120px] w-8 opacity-20 rotate-[-20deg]" />
             </div>

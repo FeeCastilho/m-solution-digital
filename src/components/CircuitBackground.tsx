@@ -1,4 +1,9 @@
+import { useParallax } from "@/hooks/useParallax";
+
 const CircuitBackground = () => {
+  const slowY = useParallax(0.03);
+  const medY = useParallax(0.06);
+
   return (
     <div className="fixed inset-0 pointer-events-none overflow-hidden z-0">
       <svg className="absolute inset-0 w-full h-full opacity-[0.08]" xmlns="http://www.w3.org/2000/svg">
@@ -16,10 +21,20 @@ const CircuitBackground = () => {
         </defs>
         <rect width="100%" height="100%" fill="url(#circuit)" />
       </svg>
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[900px] h-[900px] rounded-full opacity-[0.05]"
-        style={{ background: "radial-gradient(circle, hsl(215 55% 60%) 0%, transparent 70%)" }} />
-      <div className="absolute top-[70%] right-0 w-[500px] h-[500px] rounded-full opacity-[0.04]"
-        style={{ background: "radial-gradient(circle, hsl(45 95% 55%) 0%, transparent 70%)" }} />
+      <div
+        className="absolute top-0 left-1/2 -translate-x-1/2 w-[900px] h-[900px] rounded-full opacity-[0.05]"
+        style={{
+          background: "radial-gradient(circle, hsl(215 55% 60%) 0%, transparent 70%)",
+          transform: `translate(-50%, ${slowY}px)`,
+        }}
+      />
+      <div
+        className="absolute top-[70%] right-0 w-[500px] h-[500px] rounded-full opacity-[0.04]"
+        style={{
+          background: "radial-gradient(circle, hsl(45 95% 55%) 0%, transparent 70%)",
+          transform: `translateY(${-medY}px)`,
+        }}
+      />
     </div>
   );
 };
