@@ -94,12 +94,24 @@ const HeroSection = () => {
           {/* Right - Brand visual with logo and parallax */}
           <div className="relative hidden lg:flex items-center justify-center">
             <div className="relative w-[420px] h-[420px] xl:w-[480px] xl:h-[480px]" style={{ transform: `translateY(${-slowY}px)` }}>
-              {/* Orbiting rings */}
-              <div className="absolute inset-0 rounded-full border border-brand-navy/30 animate-[spin_20s_linear_infinite]" />
-              <div className="absolute inset-6 rounded-full border border-brand-gold/15 animate-[spin_15s_linear_infinite_reverse]" />
-              <div className="absolute inset-12 rounded-full border border-brand-navy/10 animate-[spin_25s_linear_infinite]" />
+              {/* Orbiting ring 1 — clockwise with 2 dots */}
+              <div className="absolute inset-0 rounded-full border border-brand-navy/30 animate-[spin_20s_linear_infinite]">
+                <div className="circuit-dot absolute -top-1 left-1/2 -translate-x-1/2" />
+                <div className="circuit-dot absolute -bottom-1 left-1/2 -translate-x-1/2" />
+              </div>
 
-              {/* Center logo */}
+              {/* Orbiting ring 2 — counter-clockwise with 2 dots */}
+              <div className="absolute inset-6 rounded-full border border-brand-gold/15 animate-[spin_15s_linear_infinite_reverse]">
+                <div className="circuit-dot absolute top-1/2 -left-1 -translate-y-1/2" />
+                <div className="circuit-dot absolute top-1/2 -right-1 -translate-y-1/2" />
+              </div>
+
+              {/* Orbiting ring 3 — clockwise slow with 1 dot */}
+              <div className="absolute inset-12 rounded-full border border-brand-navy/10 animate-[spin_25s_linear_infinite]">
+                <div className="circuit-dot absolute -top-1 left-1/2 -translate-x-1/2" />
+              </div>
+
+              {/* Center logo (static) */}
               <div className="absolute inset-16 rounded-full bg-brand-navy/10 flex items-center justify-center border border-brand-navy/20 overflow-hidden">
                 <div className="absolute inset-0 rounded-full animate-glow-pulse opacity-20" />
                 <img
@@ -108,18 +120,6 @@ const HeroSection = () => {
                   className="w-3/4 h-auto relative z-10 drop-shadow-[0_0_30px_hsl(45_95%_52%/0.3)]"
                 />
               </div>
-
-              {/* Circuit dots */}
-              {[0, 72, 144, 216, 288].map((deg, i) => (
-                <div
-                  key={i}
-                  className="absolute circuit-dot"
-                  style={{
-                    top: `${50 + 45 * Math.sin((deg * Math.PI) / 180)}%`,
-                    left: `${50 + 45 * Math.cos((deg * Math.PI) / 180)}%`,
-                  }}
-                />
-              ))}
 
               <CircuitDecoration className="absolute -top-8 -right-6 h-[120px] w-8 opacity-30 rotate-[30deg]" />
               <CircuitDecoration className="absolute -bottom-8 -left-6 h-[120px] w-8 opacity-20 rotate-[-20deg]" />
