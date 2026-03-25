@@ -1,5 +1,6 @@
 import { MessageCircle } from "lucide-react";
 import logoVertical from "@/assets/logo-vertical.png";
+import businessmanImg from "@/assets/businessman.png";
 import CircuitDecoration from "./CircuitDecoration";
 import { useParallax } from "@/hooks/useParallax";
 
@@ -19,10 +20,6 @@ const HeroSection = () => {
       <CircuitDecoration
         className="absolute top-32 right-12 h-[250px] w-10 opacity-25 hidden lg:block"
         style={{ transform: `translateY(${-medY}px)` }}
-      />
-      <CircuitDecoration
-        className="absolute bottom-20 left-[20%] h-[200px] w-10 opacity-15 hidden lg:block"
-        style={{ transform: `translateY(${slowY * 0.5}px)` }}
       />
 
       {/* Energy lines SVG */}
@@ -45,26 +42,26 @@ const HeroSection = () => {
       </div>
 
       <div className="container relative z-10 mx-auto px-6 py-20 lg:py-0">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-8 items-center">
           {/* Left - Text */}
           <div className="space-y-8">
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border-glow-navy glass-navy">
               <div className="circuit-dot" style={{ width: 6, height: 6 }} />
-              <span className="text-sm text-muted-foreground tracking-wider uppercase">
-                Especialistas em Lojas de Construção e Móveis
+              <span className="text-sm text-muted-foreground tracking-wider uppercase font-semibold">
+                🧱 Construção &nbsp;·&nbsp; 🛋️ Móveis
               </span>
             </div>
 
             <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold leading-[0.95] tracking-tight">
-              Transformamos sua{" "}
-              <span className="text-primary text-glow-gold">loja</span>{" "}
-              em uma máquina de clientes no WhatsApp
+              <span className="text-primary text-glow-gold">Especialistas</span>{" "}
+              em lojas de construção e móveis no digital
             </h1>
 
             <p className="text-lg sm:text-xl text-muted-foreground max-w-xl leading-relaxed" style={{ textWrap: "pretty" as any }}>
-              Estratégia, tecnologia e posicionamento digital para lojas de{" "}
-              <span className="text-foreground font-medium">material de construção</span> e{" "}
-              <span className="text-foreground font-medium">móveis</span> que querem vender mais todos os dias.
+              Transformamos sua{" "}
+              <span className="text-foreground font-semibold">loja de material de construção</span> ou{" "}
+              <span className="text-foreground font-semibold">loja de móveis</span>{" "}
+              em uma máquina de clientes no WhatsApp com estratégia, tecnologia e posicionamento digital.
             </p>
 
             <a
@@ -86,43 +83,54 @@ const HeroSection = () => {
                 ))}
               </div>
               <p className="text-sm text-muted-foreground">
-                <span className="text-foreground font-semibold">+127 lojas</span> já confiam no nosso trabalho
+                <span className="text-foreground font-semibold">+127 lojas</span> de construção e móveis já confiam em nós
               </p>
             </div>
           </div>
 
-          {/* Right - Brand visual with logo and parallax */}
-          <div className="relative hidden lg:flex items-center justify-center">
-            <div className="relative w-[420px] h-[420px] xl:w-[480px] xl:h-[480px]" style={{ transform: `translateY(${-slowY}px)` }}>
-              {/* Orbiting ring 1 — clockwise with 2 dots */}
-              <div className="absolute inset-0 rounded-full border border-brand-navy/30 animate-[spin_20s_linear_infinite]">
-                <div className="circuit-dot absolute -top-1 left-1/2 -translate-x-1/2" />
-                <div className="circuit-dot absolute -bottom-1 left-1/2 -translate-x-1/2" />
-              </div>
+          {/* Right - Businessman + Orbital Logo side by side */}
+          <div className="relative hidden lg:flex items-end justify-center gap-0">
+            {/* Businessman image */}
+            <div className="relative z-10 flex-shrink-0" style={{ transform: `translateY(${-slowY * 0.3}px)` }}>
+              <img
+                src={businessmanImg}
+                alt="Especialista M Solution Digital"
+                className="h-[480px] xl:h-[540px] w-auto object-contain drop-shadow-[0_20px_40px_rgba(0,0,0,0.15)]"
+              />
+              {/* Glow behind */}
+              <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[200px] h-[60px] bg-primary/10 rounded-full blur-2xl" />
+            </div>
 
-              {/* Orbiting ring 2 — counter-clockwise with 2 dots */}
-              <div className="absolute inset-6 rounded-full border border-brand-gold/15 animate-[spin_15s_linear_infinite_reverse]">
-                <div className="circuit-dot absolute top-1/2 -left-1 -translate-y-1/2" />
-                <div className="circuit-dot absolute top-1/2 -right-1 -translate-y-1/2" />
-              </div>
+            {/* Orbital logo - positioned to the right/overlapping slightly */}
+            <div className="relative -ml-8 flex-shrink-0" style={{ transform: `translateY(${-slowY}px)` }}>
+              <div className="relative w-[280px] h-[280px] xl:w-[320px] xl:h-[320px]">
+                {/* Orbiting ring 1 */}
+                <div className="absolute inset-0 rounded-full border border-brand-navy/30 animate-[spin_20s_linear_infinite]">
+                  <div className="circuit-dot absolute -top-1 left-1/2 -translate-x-1/2" />
+                  <div className="circuit-dot absolute -bottom-1 left-1/2 -translate-x-1/2" />
+                </div>
 
-              {/* Orbiting ring 3 — clockwise slow with 1 dot */}
-              <div className="absolute inset-12 rounded-full border border-brand-navy/10 animate-[spin_25s_linear_infinite]">
-                <div className="circuit-dot absolute -top-1 left-1/2 -translate-x-1/2" />
-              </div>
+                {/* Orbiting ring 2 */}
+                <div className="absolute inset-5 rounded-full border border-brand-gold/15 animate-[spin_15s_linear_infinite_reverse]">
+                  <div className="circuit-dot absolute top-1/2 -left-1 -translate-y-1/2" />
+                  <div className="circuit-dot absolute top-1/2 -right-1 -translate-y-1/2" />
+                </div>
 
-              {/* Center logo (static) */}
-              <div className="absolute inset-16 rounded-full bg-brand-navy/10 flex items-center justify-center border border-brand-navy/20 overflow-hidden">
-                <div className="absolute inset-0 rounded-full animate-glow-pulse opacity-20" />
-                <img
-                  src={logoVertical}
-                  alt="M Solution Digital"
-                  className="w-3/4 h-auto relative z-10 drop-shadow-[0_0_30px_hsl(45_95%_52%/0.3)]"
-                />
-              </div>
+                {/* Orbiting ring 3 */}
+                <div className="absolute inset-10 rounded-full border border-brand-navy/10 animate-[spin_25s_linear_infinite]">
+                  <div className="circuit-dot absolute -top-1 left-1/2 -translate-x-1/2" />
+                </div>
 
-              <CircuitDecoration className="absolute -top-8 -right-6 h-[120px] w-8 opacity-30 rotate-[30deg]" />
-              <CircuitDecoration className="absolute -bottom-8 -left-6 h-[120px] w-8 opacity-20 rotate-[-20deg]" />
+                {/* Center logo */}
+                <div className="absolute inset-14 rounded-full bg-brand-navy/10 flex items-center justify-center border border-brand-navy/20 overflow-hidden">
+                  <div className="absolute inset-0 rounded-full animate-glow-pulse opacity-20" />
+                  <img
+                    src={logoVertical}
+                    alt="M Solution Digital"
+                    className="w-3/4 h-auto relative z-10 drop-shadow-[0_0_30px_hsl(45_95%_52%/0.3)]"
+                  />
+                </div>
+              </div>
             </div>
           </div>
         </div>
