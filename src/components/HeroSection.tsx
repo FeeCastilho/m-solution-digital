@@ -95,7 +95,7 @@ const HeroSection = () => {
               <img
                 src={businessmanImg}
                 alt="Especialista M Solution Digital"
-                className="absolute -right-40 xl:-right-48 bottom-[-60px] h-[580px] xl:h-[650px] w-auto object-contain z-0 opacity-90 drop-shadow-[0_20px_40px_rgba(0,0,0,0.12)]"
+                className="absolute -right-64 xl:-right-72 bottom-[-80px] h-[680px] xl:h-[760px] w-auto object-contain z-0 opacity-90 drop-shadow-[0_20px_40px_rgba(0,0,0,0.12)]"
                 style={{ transform: `translateY(${slowY * 0.2}px)` }}
               />
               <div className="absolute -right-16 bottom-[-50px] w-[200px] h-[60px] bg-primary/10 rounded-full blur-2xl z-0" />
