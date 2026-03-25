@@ -90,12 +90,12 @@ const HeroSection = () => {
 
           {/* Right - Logo orbital (centro) + Businessman (direita, atrás) */}
           <div className="relative hidden lg:flex items-center justify-center">
-            <div className="relative w-[420px] h-[420px] xl:w-[480px] xl:h-[480px]" style={{ transform: `translateY(${-slowY}px)` }}>
+            <div className="relative w-[420px] h-[420px] xl:w-[480px] xl:h-[480px] -translate-x-10 xl:-translate-x-14" style={{ transform: `translateY(${-slowY}px)` }}>
               {/* Businessman behind everything, positioned to the right */}
               <img
                 src={businessmanImg}
                 alt="Especialista M Solution Digital"
-                className="absolute -right-64 xl:-right-72 bottom-[-80px] h-[680px] xl:h-[760px] w-auto object-contain z-0 opacity-90 drop-shadow-[0_20px_40px_rgba(0,0,0,0.12)]"
+                className="absolute -right-64 xl:-right-72 bottom-[-120px] h-[1080px] xl:h-[1200px] w-auto object-contain z-0 opacity-90 drop-shadow-[0_20px_40px_rgba(0,0,0,0.12)]"
                 style={{ transform: `translateY(${slowY * 0.2}px)` }}
               />
               <div className="absolute -right-16 bottom-[-50px] w-[200px] h-[60px] bg-primary/10 rounded-full blur-2xl z-0" />
