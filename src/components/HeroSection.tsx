@@ -88,21 +88,10 @@ const HeroSection = () => {
             </div>
           </div>
 
-          {/* Right - Businessman + Orbital Logo side by side */}
+          {/* Right - Orbital Logo + Businessman */}
           <div className="relative hidden lg:flex items-end justify-center gap-0">
-            {/* Businessman image */}
-            <div className="relative z-10 flex-shrink-0" style={{ transform: `translateY(${-slowY * 0.3}px)` }}>
-              <img
-                src={businessmanImg}
-                alt="Especialista M Solution Digital"
-                className="h-[480px] xl:h-[540px] w-auto object-contain drop-shadow-[0_20px_40px_rgba(0,0,0,0.15)]"
-              />
-              {/* Glow behind */}
-              <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[200px] h-[60px] bg-primary/10 rounded-full blur-2xl" />
-            </div>
-
-            {/* Orbital logo - positioned to the right/overlapping slightly */}
-            <div className="relative -ml-8 flex-shrink-0" style={{ transform: `translateY(${-slowY}px)` }}>
+            {/* Orbital logo - left side */}
+            <div className="relative flex-shrink-0" style={{ transform: `translateY(${-slowY}px)` }}>
               <div className="relative w-[280px] h-[280px] xl:w-[320px] xl:h-[320px]">
                 {/* Orbiting ring 1 */}
                 <div className="absolute inset-0 rounded-full border border-brand-navy/30 animate-[spin_20s_linear_infinite]">
@@ -131,6 +120,16 @@ const HeroSection = () => {
                   />
                 </div>
               </div>
+            </div>
+
+            {/* Businessman - right side */}
+            <div className="relative z-10 -ml-6 flex-shrink-0" style={{ transform: `translateY(${-slowY * 0.3}px)` }}>
+              <img
+                src={businessmanImg}
+                alt="Especialista M Solution Digital"
+                className="h-[460px] xl:h-[520px] w-auto object-contain drop-shadow-[0_20px_40px_rgba(0,0,0,0.15)]"
+              />
+              <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[200px] h-[60px] bg-primary/10 rounded-full blur-2xl" />
             </div>
           </div>
         </div>
