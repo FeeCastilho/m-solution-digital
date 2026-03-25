@@ -121,6 +121,16 @@ const HeroSection = () => {
                 </div>
               </div>
             </div>
+
+            {/* Businessman - right side */}
+            <div className="relative z-10 -ml-6 flex-shrink-0" style={{ transform: `translateY(${-slowY * 0.3}px)` }}>
+              <img
+                src={businessmanImg}
+                alt="Especialista M Solution Digital"
+                className="h-[460px] xl:h-[520px] w-auto object-contain drop-shadow-[0_20px_40px_rgba(0,0,0,0.15)]"
+              />
+              <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[200px] h-[60px] bg-primary/10 rounded-full blur-2xl" />
+            </div>
           </div>
         </div>
       </div>
