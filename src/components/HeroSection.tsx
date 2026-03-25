@@ -88,48 +88,47 @@ const HeroSection = () => {
             </div>
           </div>
 
-          {/* Right - Orbital Logo + Businessman */}
-          <div className="relative hidden lg:flex items-end justify-center gap-0">
-            {/* Orbital logo - left side */}
-            <div className="relative flex-shrink-0" style={{ transform: `translateY(${-slowY}px)` }}>
-              <div className="relative w-[280px] h-[280px] xl:w-[320px] xl:h-[320px]">
-                {/* Orbiting ring 1 */}
-                <div className="absolute inset-0 rounded-full border border-brand-navy/30 animate-[spin_20s_linear_infinite]">
-                  <div className="circuit-dot absolute -top-1 left-1/2 -translate-x-1/2" />
-                  <div className="circuit-dot absolute -bottom-1 left-1/2 -translate-x-1/2" />
-                </div>
-
-                {/* Orbiting ring 2 */}
-                <div className="absolute inset-5 rounded-full border border-brand-gold/15 animate-[spin_15s_linear_infinite_reverse]">
-                  <div className="circuit-dot absolute top-1/2 -left-1 -translate-y-1/2" />
-                  <div className="circuit-dot absolute top-1/2 -right-1 -translate-y-1/2" />
-                </div>
-
-                {/* Orbiting ring 3 */}
-                <div className="absolute inset-10 rounded-full border border-brand-navy/10 animate-[spin_25s_linear_infinite]">
-                  <div className="circuit-dot absolute -top-1 left-1/2 -translate-x-1/2" />
-                </div>
-
-                {/* Center logo */}
-                <div className="absolute inset-14 rounded-full bg-brand-navy/10 flex items-center justify-center border border-brand-navy/20 overflow-hidden">
-                  <div className="absolute inset-0 rounded-full animate-glow-pulse opacity-20" />
-                  <img
-                    src={logoVertical}
-                    alt="M Solution Digital"
-                    className="w-3/4 h-auto relative z-10 drop-shadow-[0_0_30px_hsl(45_95%_52%/0.3)]"
-                  />
-                </div>
-              </div>
-            </div>
-
-            {/* Businessman - right side */}
-            <div className="relative z-10 -ml-6 flex-shrink-0" style={{ transform: `translateY(${-slowY * 0.3}px)` }}>
+          {/* Right - Logo orbital (centro) + Businessman (direita, atrás) */}
+          <div className="relative hidden lg:flex items-center justify-center">
+            <div className="relative w-[420px] h-[420px] xl:w-[480px] xl:h-[480px]" style={{ transform: `translateY(${-slowY}px)` }}>
+              {/* Businessman behind everything, positioned to the right */}
               <img
                 src={businessmanImg}
                 alt="Especialista M Solution Digital"
-                className="h-[460px] xl:h-[520px] w-auto object-contain drop-shadow-[0_20px_40px_rgba(0,0,0,0.15)]"
+                className="absolute -right-28 xl:-right-32 bottom-[-40px] h-[500px] xl:h-[560px] w-auto object-contain z-0 opacity-90 drop-shadow-[0_20px_40px_rgba(0,0,0,0.12)]"
+                style={{ transform: `translateY(${slowY * 0.2}px)` }}
               />
-              <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[200px] h-[60px] bg-primary/10 rounded-full blur-2xl" />
+              <div className="absolute -right-16 bottom-[-50px] w-[200px] h-[60px] bg-primary/10 rounded-full blur-2xl z-0" />
+
+              {/* Orbiting ring 1 — clockwise with 2 dots */}
+              <div className="absolute inset-0 rounded-full border border-brand-navy/30 animate-[spin_20s_linear_infinite] z-10">
+                <div className="circuit-dot absolute -top-1 left-1/2 -translate-x-1/2" />
+                <div className="circuit-dot absolute -bottom-1 left-1/2 -translate-x-1/2" />
+              </div>
+
+              {/* Orbiting ring 2 — counter-clockwise with 2 dots */}
+              <div className="absolute inset-6 rounded-full border border-brand-gold/15 animate-[spin_15s_linear_infinite_reverse] z-10">
+                <div className="circuit-dot absolute top-1/2 -left-1 -translate-y-1/2" />
+                <div className="circuit-dot absolute top-1/2 -right-1 -translate-y-1/2" />
+              </div>
+
+              {/* Orbiting ring 3 — clockwise slow with 1 dot */}
+              <div className="absolute inset-12 rounded-full border border-brand-navy/10 animate-[spin_25s_linear_infinite] z-10">
+                <div className="circuit-dot absolute -top-1 left-1/2 -translate-x-1/2" />
+              </div>
+
+              {/* Center logo (static, on top) */}
+              <div className="absolute inset-16 rounded-full bg-brand-navy/10 flex items-center justify-center border border-brand-navy/20 overflow-hidden z-20">
+                <div className="absolute inset-0 rounded-full animate-glow-pulse opacity-20" />
+                <img
+                  src={logoVertical}
+                  alt="M Solution Digital"
+                  className="w-3/4 h-auto relative z-10 drop-shadow-[0_0_30px_hsl(45_95%_52%/0.3)]"
+                />
+              </div>
+
+              <CircuitDecoration className="absolute -top-8 -right-6 h-[120px] w-8 opacity-30 rotate-[30deg]" />
+              <CircuitDecoration className="absolute -bottom-8 -left-6 h-[120px] w-8 opacity-20 rotate-[-20deg]" />
             </div>
           </div>
         </div>
